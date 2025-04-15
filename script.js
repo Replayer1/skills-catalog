@@ -37,6 +37,7 @@ const skills = [
     }
   ];
 const htmlMain = document.querySelector("main");
+let filterBtn = document.getElementById("all");
 
 // render skills
 function renderSkills(filterType) {
@@ -111,6 +112,12 @@ renderSkills('all');
 // filter skills
 function filterSkills(a) {
     htmlMain.innerHTML = "";
+    filterBtn.classList.remove("active");
+    filterBtn.disabled = false
+    filterBtn = document.getElementById(a);
+    filterBtn.classList.add("active");
+    filterBtn.disabled = true
+    console.log(filterBtn);
     renderSkills(a);
 }
 all.addEventListener("click", function() {
